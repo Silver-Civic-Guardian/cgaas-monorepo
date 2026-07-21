@@ -1,0 +1,57 @@
+- generic [ref=f1e3]:
+  - generic [ref=f1e4]:
+    - button "Citizen Chat" [ref=f1e5] [cursor=pointer]
+    - button "Admin Dashboard" [ref=f1e6] [cursor=pointer]
+  - generic [ref=f1e7]:
+    - banner [ref=f1e8]:
+      - generic [ref=f1e9]:
+        - generic [ref=f1e10]:
+          - generic [ref=f1e11]: CG
+          - heading "Civic Guardian Admin" [level=1] [ref=f1e12]
+        - generic [ref=f1e13]:
+          - generic [ref=f1e14]:
+            - generic [ref=f1e15]: "Ward:"
+            - combobox "Ward:" [ref=f1e16]:
+              - option "Da'an District, Taipei" [selected]
+              - option "Xinyi District, Taipei"
+              - option "Zhongshan District, Taipei"
+          - generic [ref=f1e17]: A
+    - main [ref=f1e18]:
+      - generic [ref=f1e19]:
+        - heading "Dashboard Overview" [level=2] [ref=f1e20]
+        - paragraph [ref=f1e21]: Monitor community reports and threats for Da'an District.
+      - generic [ref=f1e22]:
+        - generic [ref=f1e24]:
+          - term [ref=f1e25]: Total Reports (Today)
+          - definition [ref=f1e26]: "24"
+        - generic [ref=f1e28]:
+          - term [ref=f1e29]: Active Threats
+          - definition [ref=f1e30]: "3"
+        - generic [ref=f1e32]:
+          - term [ref=f1e33]: Resolved (This Week)
+          - definition [ref=f1e34]: "142"
+      - generic [ref=f1e35]:
+        - generic [ref=f1e36]:
+          - generic [ref=f1e37]:
+            - heading "Top Threats & Issues" [level=3] [ref=f1e38]
+            - paragraph [ref=f1e39]: Recent high-priority reports requiring attention.
+          - button "Refresh" [ref=f1e40] [cursor=pointer]
+        - list [ref=f1e41]:
+          - listitem [ref=f1e42]:
+            - generic [ref=f1e43]:
+              - generic [ref=f1e44]:
+                - paragraph [ref=f1e45]: SCAM
+                - paragraph [ref=f1e46]: Trending Issue
+              - generic [ref=f1e47]: "Count: 5"
+          - listitem [ref=f1e49]:
+            - generic [ref=f1e50]:
+              - generic [ref=f1e51]:
+                - paragraph [ref=f1e52]: RUMOR
+                - paragraph [ref=f1e53]: Trending Issue
+              - generic [ref=f1e54]: "Count: 2"
+          - listitem [ref=f1e56]:
+            - generic [ref=f1e57]:
+              - generic [ref=f1e58]:
+                - paragraph [ref=f1e59]: HELP
+                - paragraph [ref=f1e60]: Trending Issue
+              - generic [ref=f1e61]: "Count: 1"

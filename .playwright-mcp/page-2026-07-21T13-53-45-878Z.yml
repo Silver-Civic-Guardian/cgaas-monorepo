@@ -1,0 +1,32 @@
+- generic [ref=e3]:
+  - generic [ref=e4]:
+    - button "Citizen Chat" [ref=e5] [cursor=pointer]
+    - button "Admin Dashboard" [ref=e6] [cursor=pointer]
+  - generic [ref=e7]:
+    - banner [ref=e8]:
+      - generic [ref=e9]:
+        - generic [ref=e10]: CG
+        - generic [ref=e11]:
+          - heading "Civic Guardian" [level=1] [ref=e12]
+          - paragraph [ref=e13]: Official Account
+      - button [ref=e14] [cursor=pointer]
+    - generic [ref=e16]:
+      - generic [ref=e17]: Today
+      - generic [ref=e18]:
+        - generic [ref=e19]: CG
+        - generic [ref=e20]:
+          - paragraph [ref=e22]: Hello! How can I help you today?
+          - generic [ref=e23]: 10:00 AM
+      - generic [ref=e25]:
+        - paragraph [ref=e27]: I want to report a pothole on Main St.
+        - generic [ref=e28]: 10:01 AM
+      - generic [ref=e29]:
+        - generic [ref=e30]: CG
+        - generic [ref=e31]:
+          - paragraph [ref=e33]: Thank you. Could you please provide a photo or more specific location details?
+          - generic [ref=e34]: 10:01 AM
+    - generic [ref=e35]:
+      - button [ref=e36] [cursor=pointer]
+      - generic [ref=e38]:
+        - textbox "Aa" [ref=e39]
+        - button [disabled] [ref=e40]
