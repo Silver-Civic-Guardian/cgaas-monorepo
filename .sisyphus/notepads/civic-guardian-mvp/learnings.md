@@ -96,3 +96,40 @@
 - The Teachable Moment UI appears when a scam is detected.
 - The dashboard correctly fetches and displays the aggregated threat counts from the seeded data.
 - The AI generation takes around 10-11 seconds, which is longer than the 800ms delay from the mock data service, but the system handles it gracefully with a loading indicator.
+
+### GenAI Integration Upgrade
+- Upgraded the Gemini integration to use native structured outputs for intent classification.
+- Used `responseMimeType: "application/json"` and `responseSchema` with `Type.STRING` and `enum` to enforce the intent to be one of `["SCAM", "RUMOR", "HELP"]`.
+- Moved role-playing instructions (e.g., "Auntie" or "Uncle" persona) into `config.systemInstruction` for the empathy generation step, which is the recommended way to set system-level instructions in the new `@google/genai` SDK.
+- Note: When using `responseMimeType: "application/json"` with a string schema, the response text includes quotes (e.g., `"SCAM"`). It's necessary to strip these quotes or parse the JSON before using the value.
+
+## Task 1.2: Enrich Mock Data Service
+- Replaced simple string matching with hardcoded arrays of realistic mock objects (`MOCK_SCAMS` and `MOCK_RUMORS`) in `backend/services/data.service.js`.
+- Used `.find()` to match user input against the mock data arrays.
+- This improves the realism of the mock data service for the MVP.
+
+### Task 1.3: Enrich Seed Data
+- Updated `backend/scripts/seed.js` to inject realistic mock URLs and rumor text into the `metadata` JSON blob during seeding.
+- Used arrays of mock data for scams, rumors, and help requests.
+- Verified the script works by running `npm run seed --prefix backend` and checking the database.
+
+## Task 2.2: Decouple Controllers
+- Successfully refactored `chat.controller.js` and `threat.controller.js` to use the repository pattern.
+- Replaced raw SQL queries with calls to `saveInteraction` and `getTopThreatsByWard` from `interaction.repository.js`.
+- Verified that the endpoints still function correctly and interact with the database as expected.
+
+## Centralize Tailwind Theme
+- Added custom colors (`line-green`, `line-bg`, `line-bubble`) to `tailwind.config.js` to replace arbitrary hex codes in the UI.
+- This improves maintainability and ensures consistency across the application.
+
+## Custom Hooks Extraction
+- Successfully extracted `useChat` and `useThreats` hooks.
+- The UI components (`ChatUI` and `Dashboard`) are now cleaner and focused solely on rendering.
+- Refactored ChatUI.jsx into smaller components (MessageBubble, MessageInput) to improve maintainability.
+
+## System Test & Verification
+- Created a Playwright script (`test-refactor.js`) to perform end-to-end testing of the chat and dashboard flows.
+- Verified that the loading indicator appears during the AI processing delay.
+- Verified that the "Protect Yourself!" teachable moment card is correctly displayed when a scam is detected.
+- Verified that the dashboard correctly fetches and displays aggregated threat data from the seeded database.
+- The architecture refactoring (separating routes, controllers, services, and repositories) works seamlessly end-to-end.

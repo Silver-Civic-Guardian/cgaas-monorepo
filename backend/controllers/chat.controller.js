@@ -1,4 +1,5 @@
 const { processMessage } = require('../services/aiService');
+const { saveInteraction } = require('../repositories/interaction.repository');
 
 const handleChat = async (req, res) => {
   const { message, region = 'TW', ward = 'taipei-daan' } = req.body;
@@ -11,10 +12,7 @@ const handleChat = async (req, res) => {
     
     const db = req.app.locals.db;
     if (db) {
-      await db.run(
-        'INSERT INTO interactions (intent, region, ward, metadata) VALUES (?, ?, ?, ?)',
-        [result.intent, region, ward, JSON.stringify(result)]
-      );
+      await saveInteraction(db, { intent: result.intent, region, ward, metadata: result });
     }
 
     res.json(result);

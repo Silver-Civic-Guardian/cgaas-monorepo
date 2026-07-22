@@ -1,3 +1,5 @@
+const { getTopThreatsByWard } = require('../repositories/interaction.repository');
+
 const getThreatsByWard = async (req, res) => {
   const { ward } = req.params;
   const db = req.app.locals.db;
@@ -7,14 +9,7 @@ const getThreatsByWard = async (req, res) => {
   }
 
   try {
-    const threats = await db.all(`
-      SELECT intent, COUNT(*) as count
-      FROM interactions
-      WHERE ward = ? AND timestamp >= datetime('now', '-1 day')
-      GROUP BY intent
-      ORDER BY count DESC
-      LIMIT 3
-    `, [ward]);
+    const threats = await getTopThreatsByWard(db, ward);
     
     res.json(threats);
   } catch (error) {

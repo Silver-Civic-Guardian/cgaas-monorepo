@@ -1,4 +1,4 @@
-const { GoogleGenAI } = require('@google/genai');
+const { GoogleGenAI, Type } = require('@google/genai');
 const { checkUrl, checkFact } = require('./data.service');
 const { buildIntentPrompt, buildEmpathyPrompt } = require('../config/prompts');
 
@@ -14,17 +14,30 @@ async function processMessage(message) {
     const intentResponse = await ai.models.generateContent({
       model: MODEL_NAME,
       contents: intentPrompt,
+      config: {
+        responseMimeType: "application/json",
+        responseSchema: {
+          type: Type.STRING,
+          enum: ["SCAM", "RUMOR", "HELP"]
+        }
+      }
     });
     console.log('Intent response received:', intentResponse.text);
     
-    const intent = intentResponse.text.trim().toUpperCase();
+    let intentText = intentResponse.text.trim();
+    if (intentText.startsWith('"') && intentText.endsWith('"')) {
+      intentText = intentText.slice(1, -1);
+    }
+    const intent = intentText.toUpperCase();
     let finalIntent = ['SCAM', 'RUMOR', 'HELP'].includes(intent) ? intent : 'HELP';
     
     let apiResult = null;
     if (finalIntent === 'SCAM') {
       apiResult = await checkUrl(message);
+      console.log('checkUrl result:', apiResult);
     } else if (finalIntent === 'RUMOR') {
       apiResult = await checkFact(message);
+      console.log('checkFact result:', apiResult);
     }
     
     const empathyPrompt = buildEmpathyPrompt(message, finalIntent, apiResult);
@@ -33,6 +46,9 @@ async function processMessage(message) {
     const empathyResponse = await ai.models.generateContent({
       model: MODEL_NAME,
       contents: empathyPrompt,
+      config: {
+        systemInstruction: "You are a helpful, culturally sensitive assistant acting like a caring 'Auntie' or 'Uncle'."
+      }
     });
     console.log('Empathy response received');
     

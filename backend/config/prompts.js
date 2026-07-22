@@ -13,7 +13,6 @@ function buildIntentPrompt(message) {
 
 function buildEmpathyPrompt(message, intent, apiResult) {
   let empathyPrompt = `
-      You are a helpful, culturally sensitive assistant acting like a caring "Auntie" or "Uncle".
       The user sent this message: "${message}"
       The intent was classified as: ${intent}
     `;

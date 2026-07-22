@@ -26,3 +26,15 @@
 ## Prompt Extraction
 - Extracted `intentPrompt` and `empathyPrompt` from `aiService.js` into `backend/config/prompts.js`.
 - Refactored them into functions `buildIntentPrompt(message)` and `buildEmpathyPrompt(message, intent, apiResult)` to accept dynamic variables.
+
+## Interaction Repository
+- Created `interaction.repository.js` to encapsulate raw SQL queries for `interactions` table.
+- Extracted `saveInteraction` and `getTopThreatsByWard` from `chat.controller.js` and `threat.controller.js`.
+
+## Task 2.2: Decouple Controllers
+- **Decision**: Refactored controllers to use the repository pattern.
+- **Rationale**: This decouples the controllers from the database implementation, making the code more modular, testable, and easier to maintain. It aligns with the goal of separating concerns and improving the overall architecture.
+
+## Frontend Refactoring: Custom Hooks
+- Extracted state and data fetching logic from `ChatUI.jsx` and `Dashboard.jsx` into custom hooks (`useChat.js` and `useThreats.js`).
+- This improves separation of concerns, making the UI components purely presentational and easier to test.

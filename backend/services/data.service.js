@@ -1,14 +1,28 @@
+const MOCK_SCAMS = [
+  { url: 'http://free-crypto-giveaway.com', threatType: 'Phishing', description: 'Known crypto scam URL.' },
+  { url: 'https://irs-tax-refund-urgent.net', threatType: 'Impersonation', description: 'Fake IRS tax refund portal.' },
+  { url: 'http://win-free-iphone-now.org', threatType: 'Malware', description: 'Malicious site distributing malware.' }
+];
+
+const MOCK_RUMORS = [
+  { text: 'garlic cures the virus', correction: 'Garlic does not cure viruses. Please consult a doctor.' },
+  { text: 'drinking bleach prevents covid', correction: 'Drinking bleach is extremely dangerous and does not prevent COVID-19.' },
+  { text: '5g towers cause coronavirus', correction: 'There is no scientific evidence linking 5G networks to COVID-19.' }
+];
+
 async function checkUrl(url) {
   return new Promise((resolve) => {
     setTimeout(() => {
       if (!url) return resolve({ isScam: false });
       
       const lowerUrl = url.toLowerCase();
-      if (lowerUrl.includes('crypto') || lowerUrl.includes('free')) {
+      const match = MOCK_SCAMS.find(scam => lowerUrl.includes(scam.url.toLowerCase()) || (lowerUrl.includes('crypto') && scam.url.includes('crypto')));
+      
+      if (match) {
         return resolve({ 
           isScam: true, 
-          threatType: 'Phishing', 
-          description: 'Known crypto scam URL.' 
+          threatType: match.threatType, 
+          description: match.description 
         });
       }
       
@@ -23,10 +37,12 @@ async function checkFact(text) {
       if (!text) return resolve({ isRumor: false });
       
       const lowerText = text.toLowerCase();
-      if (lowerText.includes('garlic') || lowerText.includes('cure')) {
+      const match = MOCK_RUMORS.find(rumor => lowerText.includes(rumor.text.toLowerCase()));
+      
+      if (match) {
         return resolve({ 
           isRumor: true, 
-          correction: 'Garlic does not cure viruses. Please consult a doctor.' 
+          correction: match.correction 
         });
       }
       

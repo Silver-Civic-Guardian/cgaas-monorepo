@@ -3,6 +3,24 @@ const { initDb } = require('../database');
 const intents = ['SCAM', 'RUMOR', 'HELP'];
 const wards = ['taipei-daan', 'taipei-xinyi', 'taipei-zhongshan'];
 
+const MOCK_SCAMS = [
+  'http://free-crypto-giveaway.com',
+  'https://irs-tax-refund-urgent.net',
+  'http://win-free-iphone-now.org'
+];
+
+const MOCK_RUMORS = [
+  'garlic cures the virus',
+  'drinking bleach prevents covid',
+  '5g towers cause coronavirus'
+];
+
+const MOCK_HELP = [
+  'How do I apply for the subsidy?',
+  'Where is the nearest vaccination center?',
+  'I need help with my tax return.'
+];
+
 function getRandomInt(min, max) {
   return Math.floor(Math.random() * (max - min + 1)) + min;
 }
@@ -33,10 +51,18 @@ async function seed() {
       const ward = getRandomElement(wards);
       const region = 'taipei';
       const timestamp = getRandomTimestamp();
-      const metadata = JSON.stringify({
-        source: 'seed',
-        note: `Mock ${intent} report in ${ward}`
-      });
+      
+      let metadataObj = { source: 'seed' };
+      
+      if (intent === 'SCAM') {
+        metadataObj.url = getRandomElement(MOCK_SCAMS);
+      } else if (intent === 'RUMOR') {
+        metadataObj.text = getRandomElement(MOCK_RUMORS);
+      } else if (intent === 'HELP') {
+        metadataObj.request = getRandomElement(MOCK_HELP);
+      }
+
+      const metadata = JSON.stringify(metadataObj);
 
       await db.run(
         'INSERT INTO interactions (intent, region, ward, timestamp, metadata) VALUES (?, ?, ?, ?, ?)',

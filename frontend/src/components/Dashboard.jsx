@@ -1,31 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React from 'react';
+import { useThreats } from '../hooks/useThreats';
 
 const Dashboard = () => {
-  const [selectedWard, setSelectedWard] = useState('taipei-daan');
-  const [threats, setThreats] = useState([]);
-  const [loading, setLoading] = useState(false);
-  const [error, setError] = useState(null);
-
-  const fetchThreats = async () => {
-    setLoading(true);
-    setError(null);
-    try {
-      const response = await fetch(`http://localhost:3000/api/threats/ward/${selectedWard}`);
-      if (!response.ok) {
-        throw new Error('Failed to fetch threats');
-      }
-      const data = await response.json();
-      setThreats(data);
-    } catch (err) {
-      setError(err.message);
-    } finally {
-      setLoading(false);
-    }
-  };
-
-  useEffect(() => {
-    fetchThreats();
-  }, [selectedWard]);
+  const { selectedWard, setSelectedWard, threats, loading, error, fetchThreats } = useThreats();
 
   return (
     <div className="min-h-screen bg-gray-50 flex flex-col">
