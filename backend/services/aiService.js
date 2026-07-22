@@ -1,58 +1,40 @@
 const { GoogleGenAI } = require('@google/genai');
-const { checkUrl, checkFact } = require('./mockApi');
+const { checkUrl, checkFact } = require('./data.service');
+const { buildIntentPrompt, buildEmpathyPrompt } = require('../config/prompts');
 
 const ai = new GoogleGenAI({ apiKey: process.env.VERTEX_KEY });
 const MODEL_NAME = 'gemini-3.1-pro-preview';
 
 async function processMessage(message) {
+  console.log('processMessage called with:', message);
   try {
-    const intentPrompt = `
-      Analyze the following message and classify its intent into exactly one of these categories:
-      - SCAM: The message contains a suspicious link, asks about a potential scam, or mentions crypto/free money schemes.
-      - RUMOR: The message asks about a health claim, news, or potential misinformation (e.g., garlic cures).
-      - HELP: The message is a general request for help or doesn't fit the other categories.
-      
-      Message: "${message}"
-      
-      Respond with ONLY the category name (SCAM, RUMOR, or HELP).
-    `;
+    const intentPrompt = buildIntentPrompt(message);
+    console.log('Calling generateContent for intent...');
     
     const intentResponse = await ai.models.generateContent({
       model: MODEL_NAME,
       contents: intentPrompt,
     });
+    console.log('Intent response received:', intentResponse.text);
     
     const intent = intentResponse.text.trim().toUpperCase();
     let finalIntent = ['SCAM', 'RUMOR', 'HELP'].includes(intent) ? intent : 'HELP';
     
     let apiResult = null;
     if (finalIntent === 'SCAM') {
-      apiResult = checkUrl(message);
+      apiResult = await checkUrl(message);
     } else if (finalIntent === 'RUMOR') {
-      apiResult = checkFact(message);
+      apiResult = await checkFact(message);
     }
     
-    let empathyPrompt = `
-      You are a helpful, culturally sensitive assistant acting like a caring "Auntie" or "Uncle".
-      The user sent this message: "${message}"
-      The intent was classified as: ${finalIntent}
-    `;
-    
-    if (apiResult) {
-      empathyPrompt += `\nHere is the analysis result: ${JSON.stringify(apiResult)}`;
-    }
-    
-    empathyPrompt += `
-      Write a warm, empathetic response to the user. 
-      If it's a scam or rumor, gently warn them and explain why in simple terms.
-      If it's a general help request, offer assistance warmly.
-      Keep the response concise (2-3 sentences).
-    `;
+    const empathyPrompt = buildEmpathyPrompt(message, finalIntent, apiResult);
+    console.log('Calling generateContent for empathy...');
     
     const empathyResponse = await ai.models.generateContent({
       model: MODEL_NAME,
       contents: empathyPrompt,
     });
+    console.log('Empathy response received');
     
     const responseText = empathyResponse.text.trim();
     

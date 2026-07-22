@@ -60,3 +60,39 @@
 - The frontend correctly displays the "Protect Yourself!" teachable moment card when `teachableMoment` is true.
 - The dashboard correctly updates the "Top Threats & Issues" list with the `RUMOR` intent count after clicking "Refresh".
 - Note: The refresh button text is "Refresh", not "Refresh Data".
+- Refactored `backend/services/aiService.js` to use externalized prompt builder functions from `backend/config/prompts.js`.
+- Verified the `/api/chat` endpoint works correctly with the refactored AI service.
+
+## Task 2.1: Async Data Service
+- Renamed `mockApi.js` to `data.service.js` to better reflect its role.
+- Refactored `checkUrl` and `checkFact` to be `async` and return Promises with a `setTimeout` (800ms) to simulate network latency.
+- This prepares the service for integration with `aiService.js` in the next task.
+- Updated `backend/services/aiService.js` and `backend/server.js` to use the new async `data.service.js` instead of `mockApi.js`.
+- Verified that the `/api/chat` endpoint correctly awaits the mock data service functions and includes the artificial delay.
+
+## Task 3.1: Extract Chat Routing
+- Successfully extracted the `/api/chat` endpoint logic from `server.js` into `controllers/chat.controller.js` and `routes/chat.routes.js`.
+- The Express app now uses `app.use('/api/chat', chatRoutes)` to mount the router.
+- Verified the endpoint functionality using `curl`, confirming it still processes messages and interacts with the database correctly.
+
+## Task 3.2: Extract Threat Routing
+- Successfully extracted the threat routing logic from `backend/server.js` into `backend/controllers/threat.controller.js` and `backend/routes/threat.routes.js`.
+- The endpoint `/api/threats/ward/:ward` functions exactly as before, returning the top 3 intents for a given ward.
+
+## Task 3.3: Clean Server Entrypoint
+- Refactored `backend/server.js` to use `chatRoutes` and `threatRoutes`.
+- Removed old mock testing endpoints (`/api/test-mock`) and unused imports (`checkUrl`, `checkFact`).
+- Verified server starts successfully and endpoints (`/api/chat`, `/api/threats/ward/:ward`) are reachable via `curl`.
+
+## Seed Script
+- Created `backend/scripts/seed.js` to populate the SQLite database with mock interaction data.
+- The script successfully clears the `interactions` table and inserts 20-30 random records with intents (SCAM, RUMOR, HELP) and wards (taipei-daan, taipei-xinyi, taipei-zhongshan) within the last 24 hours.
+- Verified that the `/api/threats/ward/:ward` endpoint correctly aggregates and returns the seeded data.
+- Added seed script to backend/package.json and verified it runs successfully.
+
+## System Test Findings
+- The end-to-end flow works correctly.
+- The AI service correctly identifies the intent and generates an empathetic response.
+- The Teachable Moment UI appears when a scam is detected.
+- The dashboard correctly fetches and displays the aggregated threat counts from the seeded data.
+- The AI generation takes around 10-11 seconds, which is longer than the 800ms delay from the mock data service, but the system handles it gracefully with a loading indicator.

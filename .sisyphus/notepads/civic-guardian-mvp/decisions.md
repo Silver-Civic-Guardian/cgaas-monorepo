@@ -22,3 +22,7 @@
 - **Rationale**: Ensures that interactions are always logged with a location, even if the client doesn't provide one, which is useful for the MVP dashboard.
 - **Decision**: Store the entire `result` object as a JSON string in the `metadata` column of the `interactions` table.
 - **Rationale**: Provides flexibility for future analysis or debugging without needing to alter the database schema.
+
+## Prompt Extraction
+- Extracted `intentPrompt` and `empathyPrompt` from `aiService.js` into `backend/config/prompts.js`.
+- Refactored them into functions `buildIntentPrompt(message)` and `buildEmpathyPrompt(message, intent, apiResult)` to accept dynamic variables.

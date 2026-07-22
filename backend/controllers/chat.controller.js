@@ -1,0 +1,29 @@
+const { processMessage } = require('../services/aiService');
+
+const handleChat = async (req, res) => {
+  const { message, region = 'TW', ward = 'taipei-daan' } = req.body;
+  if (!message) {
+    return res.status(400).json({ error: 'Message is required' });
+  }
+  
+  try {
+    const result = await processMessage(message);
+    
+    const db = req.app.locals.db;
+    if (db) {
+      await db.run(
+        'INSERT INTO interactions (intent, region, ward, metadata) VALUES (?, ?, ?, ?)',
+        [result.intent, region, ward, JSON.stringify(result)]
+      );
+    }
+
+    res.json(result);
+  } catch (error) {
+    console.error('Error in /api/chat:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
+
+module.exports = {
+  handleChat
+};
