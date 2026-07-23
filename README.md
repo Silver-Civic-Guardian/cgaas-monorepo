@@ -15,9 +15,10 @@ This repository contains the Minimum Viable Product (MVP) built for the hackatho
 
 The project is structured as a decoupled monorepo:
 
-*   **`/frontend`**: A mobile-first React application built with Vite and styled with Tailwind CSS. It contains two main views:
+*   **`/frontend`**: A mobile-first React application built with Vite and styled with Tailwind CSS. It serves two application views and a static landing-page collection:
     *   **LINE Chat Emulator (`/`)**: A mock messaging interface for end-users to interact with the bot.
     *   **Ward Chief Dashboard (`/dashboard`)**: An admin interface for community leaders to monitor threats.
+    *   **Landing-page concepts (`/civic-guardian/`)**: A static chooser for five multilingual narratives, including the Safety Net concept at `/civic-guardian/05-safety-net/`.
 *   **`/backend`**: A Node.js and Express server that handles AI routing, mock data integration, and database interactions.
 *   **Database**: SQLite (`database.sqlite`) is used for lightweight, zero-configuration metadata logging.
 
@@ -64,6 +65,7 @@ npm run dev
 ```
 
 *   The **Frontend** (Chat UI & Dashboard) will be available at `http://localhost:5173`.
+*   The **Landing-page chooser** will be available at `http://localhost:5173/civic-guardian/`.
 *   The **Backend** API will be running on `http://localhost:3000`.
 
 ## 🧪 Usage & Testing Scenarios

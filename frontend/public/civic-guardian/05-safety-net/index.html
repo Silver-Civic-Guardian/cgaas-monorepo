@@ -1,0 +1,239 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="description" content="Civic Guardian is a safety net for digital life, helping trusted local channels verify threats, teach patterns, and keep people connected." />
+    <meta name="theme-color" content="#f3f7f0" />
+    <title>Civic Guardian | A safety net for digital life</title>
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23102621'/%3E%3Cpath d='M32 10 50 17v14c0 12-7 20-18 25C21 51 14 43 14 31V17l18-7Z' fill='%230B725F'/%3E%3Cpath d='m22 32 7 7 14-15' fill='none' stroke='%23F1F7F4' stroke-width='6' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main-content" data-i18n="skip">Skip to content</a>
+
+    <header class="site-header" id="top">
+      <div class="shell header-inner">
+        <a class="brand" href="#top" aria-label="Civic Guardian home" data-i18n="brand" data-i18n-attr="aria-label">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>Civic <b>Guardian</b></span>
+        </a>
+
+        <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav">
+          <span class="menu-label" data-i18n="menuOpen">Open menu</span>
+          <span class="menu-icon" aria-hidden="true"><i></i><i></i></span>
+        </button>
+
+        <nav class="main-nav" id="primary-nav" aria-label="Primary navigation" data-i18n="primaryNavLabel" data-i18n-attr="aria-label">
+          <a href="#empathy" data-i18n="navEmpathy">How it helps</a>
+          <a href="#learn" data-i18n="navLearn">Learn together</a>
+          <a href="#architecture" data-i18n="navArchitecture">Architecture</a>
+          <a href="#channels" data-i18n="navChannels">Trusted channels</a>
+        </nav>
+
+        <div class="header-actions">
+          <label class="language-control">
+            <span class="sr-only" data-i18n="languageLabel">Choose language</span>
+            <span class="language-glyph" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M3 12h18M12 3c2.4 2.5 3.6 5.5 3.6 9S14.4 18.5 12 21c-2.4-2.5-3.6-5.5-3.6-9S9.6 5.5 12 3Z"></path>
+              </svg>
+            </span>
+            <select id="language-select" name="language" aria-label="Choose language" data-i18n="languageLabel" data-i18n-attr="aria-label">
+              <option value="en">English</option>
+              <option value="fr">Français</option>
+              <option value="ja">日本語</option>
+              <option value="zh-TW">繁體中文</option>
+              <option value="de">Deutsch</option>
+              <option value="es">Español</option>
+              <option value="it">Italiano</option>
+            </select>
+          </label>
+          <a class="button button-small button-primary" href="#cta" data-i18n="navCta">Talk to a guardian</a>
+        </div>
+      </div>
+    </header>
+
+    <main id="main-content">
+      <section class="hero shell section-reveal" aria-labelledby="hero-title">
+        <div class="hero-copy">
+          <p class="eyebrow" data-i18n="heroEyebrow">Digital safety, made human.</p>
+          <h1 id="hero-title" data-i18n="heroTitle">A safety net for digital life.</h1>
+          <p class="hero-lead" data-i18n="heroBody">A protocol that helps trusted local channels verify threats, teach patterns, and keep people connected.</p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#empathy" data-i18n="heroPrimary">See how it feels</a>
+            <a class="text-link" href="#architecture"><span data-i18n="heroSecondary">See the architecture</span> <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="trust-note">
+            <span class="trust-dot" aria-hidden="true"></span>
+            <span data-i18n="heroTrust">Open protocol · local data · human language</span>
+          </div>
+        </div>
+
+        <figure class="hero-visual">
+          <div class="hero-image-wrap">
+            <img src="../shared-assets/human-shield-1600.webp" srcset="../shared-assets/human-shield-960.webp 960w, ../shared-assets/human-shield-1600.webp 1600w" sizes="(max-width: 767px) 100vw, 50vw" width="1600" height="844" fetchpriority="high" alt="A confident older East Asian woman holds her phone, with an adult family member behind and protective translucent speech forms around them" data-i18n="heroImageAlt" data-i18n-attr="alt" />
+            <span class="image-stamp" data-i18n="heroStamp">You are not alone</span>
+          </div>
+          <figcaption data-i18n="heroCaption">A calm second opinion, right where the question arrives.</figcaption>
+        </figure>
+      </section>
+
+      <section class="section section-empathy section-reveal" id="empathy" aria-labelledby="empathy-title">
+        <div class="shell">
+          <div class="section-intro">
+            <h2 id="empathy-title" data-i18n="empathyTitle">Facts without shame. Guidance with a human voice.</h2>
+            <p data-i18n="empathyBody">When a message feels urgent, the first job is to make room for a breath. The empathy layer translates a cold result into a useful next step.</p>
+          </div>
+
+          <div class="empathy-grid">
+            <article class="thread-card">
+              <div class="thread-topline">
+                <span class="thread-label" data-i18n="threadLabel">A message worth pausing on</span>
+                <span class="thread-status" data-i18n="threadStatus">gentle check</span>
+              </div>
+              <div class="message message-user">
+                <span class="message-speaker" data-i18n="threadUserSpeaker">Auntie Chen</span>
+                <p data-i18n="threadUser">“My health card is suspended. Should I open this link?”</p>
+              </div>
+              <div class="message message-guardian">
+                <span class="message-speaker" data-i18n="threadGuardianSpeaker">Civic Guardian</span>
+                <p data-i18n="threadGuardian">Let’s pause together. This message matches a known scam pattern. Your card is not suspended. We can check the official number instead.</p>
+                <span class="message-tag" data-i18n="threadTag">clear · kind · local</span>
+              </div>
+            </article>
+
+            <aside class="empathy-note">
+              <span class="note-line" aria-hidden="true"></span>
+              <h3 data-i18n="empathyNoteTitle">A safety net, not a lecture.</h3>
+              <p data-i18n="empathyNoteBody">Every intervention keeps dignity intact: explain the signal, name the safer option, and leave the choice with the person.</p>
+              <a class="text-link" href="#learn" data-i18n="empathyNoteLink">See the teachable moment <span aria-hidden="true">↗</span></a>
+            </aside>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-lessons section-reveal" id="learn" aria-labelledby="learn-title">
+        <div class="shell">
+          <div class="section-intro section-intro-narrow">
+            <h2 id="learn-title" data-i18n="learnTitle">Turn one pause into lasting confidence.</h2>
+            <p data-i18n="learnBody">A small, local lesson arrives at the moment it can stick. No classroom, no jargon, no extra app.</p>
+          </div>
+
+          <div class="lesson-grid">
+            <details class="lesson-card lesson-card-mint">
+              <summary><span class="lesson-step">01</span><span data-i18n="lessonOneTitle">Pause before the pressure</span><span class="summary-arrow" aria-hidden="true">↘</span></summary>
+              <p data-i18n="lessonOneBody">Spot the words that rush you: “now”, “last chance”, or “your account will close”.</p>
+              <span class="lesson-duration" data-i18n="lessonOneMeta">30-second lesson</span>
+            </details>
+            <details class="lesson-card lesson-card-coral">
+              <summary><span class="lesson-step">02</span><span data-i18n="lessonTwoTitle">Name the tell</span><span class="summary-arrow" aria-hidden="true">↘</span></summary>
+              <p data-i18n="lessonTwoBody">Learn why official services do not ask for passwords, one-time codes, or urgent transfers in a random chat.</p>
+              <span class="lesson-duration" data-i18n="lessonTwoMeta">30-second lesson</span>
+            </details>
+            <details class="lesson-card lesson-card-ink">
+              <summary><span class="lesson-step">03</span><span data-i18n="lessonThreeTitle">Share the safer next step</span><span class="summary-arrow" aria-hidden="true">↘</span></summary>
+              <p data-i18n="lessonThreeBody">Move from “don’t click” to a simple script you can send to family, friends, or a trusted service.</p>
+              <span class="lesson-duration" data-i18n="lessonThreeMeta">30-second lesson</span>
+            </details>
+          </div>
+        </div>
+      </section>
+
+      <section class="section section-architecture section-reveal" id="architecture" aria-labelledby="architecture-title">
+        <div class="shell">
+          <div class="section-intro">
+            <h2 id="architecture-title" data-i18n="architectureTitle">Plug in the local channel. Keep the safety logic open.</h2>
+            <p data-i18n="architectureLede">The adapter changes by region. The core remains a clear sequence: normalize, route, verify, respond.</p>
+          </div>
+          <div class="architecture-grid">
+            <details class="architecture-step" open>
+              <summary><span class="architecture-index">01</span><span data-i18n="architectureOneTitle">Normalize the message</span><span class="architecture-toggle" aria-hidden="true">+</span></summary>
+              <div class="architecture-body"><p data-i18n="architectureOneBody">LINE, WhatsApp, Viber, SMS, and USSD adapters translate local payloads into one standard event: user, message type, content, and region.</p><span class="architecture-label" data-i18n="architectureOneLabel">Frontend adapter</span></div>
+            </details>
+            <details class="architecture-step">
+              <summary><span class="architecture-index">02</span><span data-i18n="architectureTwoTitle">Route the intent</span><span class="architecture-toggle" aria-hidden="true">+</span></summary>
+              <div class="architecture-body"><p data-i18n="architectureTwoBody">The AI router identifies the user’s intent and selects the regional data source without coupling the core logic to a single app.</p><span class="architecture-label" data-i18n="architectureTwoLabel">AI router</span></div>
+            </details>
+            <details class="architecture-step">
+              <summary><span class="architecture-index">03</span><span data-i18n="architectureThreeTitle">Bring your own data</span><span class="architecture-toggle" aria-hidden="true">+</span></summary>
+              <div class="architecture-body"><p data-i18n="architectureThreeBody">A local police, health, or fact-checking endpoint can plug into the same contract. The source changes; the trust pattern stays recognizable.</p><span class="architecture-label" data-i18n="architectureThreeLabel">BYOD data layer</span></div>
+            </details>
+            <details class="architecture-step">
+              <summary><span class="architecture-index">04</span><span data-i18n="architectureFourTitle">Respond with empathy</span><span class="architecture-toggle" aria-hidden="true">+</span></summary>
+              <div class="architecture-body"><p data-i18n="architectureFourBody">The raw result becomes a respectful answer, followed by a localized micro-lesson when the moment can build confidence.</p><span class="architecture-label" data-i18n="architectureFourLabel">Empathy layer</span></div>
+            </details>
+          </div>
+          <aside class="architecture-note">
+            <span class="architecture-note-mark" aria-hidden="true">CGaaS</span>
+            <div><h3 data-i18n="architectureNoteLabel">The contract</h3><p data-i18n="architectureNoteBody">One normalized event can power a local chat reply, a family handoff, and an anonymized threat view without exposing the person behind the signal.</p></div>
+          </aside>
+        </div>
+      </section>
+
+      <section class="section section-channels section-reveal" id="channels" aria-labelledby="channels-title">
+        <div class="shell channels-layout">
+          <div class="section-intro section-intro-narrow">
+            <h2 id="channels-title" data-i18n="channelsTitle">Go where trust already lives.</h2>
+            <p data-i18n="channelsBody">Civic Guardian is an open protocol, not a new destination. Local partners can connect the channels their communities already know.</p>
+            <a class="text-link" href="#cta" data-i18n="channelsLink">Bring it to your community <span aria-hidden="true">↗</span></a>
+          </div>
+          <div class="channels-stack">
+            <ul class="channel-list" aria-label="Trusted messaging channels" data-i18n="channelsAriaLabel" data-i18n-attr="aria-label">
+              <li><span class="channel-mark channel-line" aria-hidden="true">L</span><span><strong data-i18n="channelLine">LINE</strong><small data-i18n="channelLineMeta">Everyday chat in Taiwan</small></span></li>
+              <li><span class="channel-mark channel-whatsapp" aria-hidden="true">W</span><span><strong data-i18n="channelWhatsapp">WhatsApp</strong><small data-i18n="channelWhatsappMeta">Family groups across borders</small></span></li>
+              <li><span class="channel-mark channel-sms" aria-hidden="true">SMS</span><span><strong data-i18n="channelSms">SMS / USSD</strong><small data-i18n="channelSmsMeta">Low-bandwidth access</small></span></li>
+              <li><span class="channel-mark channel-viber" aria-hidden="true">V</span><span><strong data-i18n="channelViber">Viber</strong><small data-i18n="channelViberMeta">Trusted regional communities</small></span></li>
+            </ul>
+            <div class="data-panel">
+              <span class="data-panel-label" data-i18n="dataPanelLabel">Bring your local data</span>
+              <h3 data-i18n="dataPanelTitle">One calm response, many local sources.</h3>
+              <p data-i18n="dataPanelBody">Police alerts, fact-checking partners, and health guidance can plug into the same empathetic router without changing the experience for citizens.</p>
+              <div class="data-flow" aria-label="Local data to empathetic guidance flow">
+                <span data-i18n="dataFlowSource">Local sources</span><i aria-hidden="true">→</i><span data-i18n="dataFlowRouter">Empathy router</span><i aria-hidden="true">→</i><span data-i18n="dataFlowReply">Human reply</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-wrap section-reveal" id="cta" aria-labelledby="cta-title">
+        <div class="shell">
+          <div class="cta-panel">
+            <div>
+              <p class="cta-kicker" data-i18n="ctaKicker">A safer digital life is a shared project.</p>
+              <h2 id="cta-title" data-i18n="ctaTitle">Build the next layer of trust with us.</h2>
+              <p data-i18n="ctaBody">For a local government, community group, or family: start with one channel and one kind response.</p>
+            </div>
+            <div class="cta-actions">
+              <a class="button button-light" href="mailto:happyfumd@icloud.com,ben@grvs.io?subject=Civic%20Guardian%20partnership" data-i18n="ctaPrimary">Start a local conversation</a>
+              <a class="text-link text-link-light" href="#top" data-i18n="ctaSecondary">Back to top <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="site-footer">
+      <div class="shell footer-grid">
+        <div class="footer-brand">
+          <a class="brand brand-light" href="#top" aria-label="Civic Guardian home" data-i18n="brand" data-i18n-attr="aria-label">Civic <b>Guardian</b></a>
+          <p data-i18n="footerBody">An open protocol for safer, more inclusive participation in the digital world.</p>
+        </div>
+        <nav class="footer-nav" aria-label="Footer navigation" data-i18n="footerNavLabel" data-i18n-attr="aria-label">
+          <a href="#empathy" data-i18n="footerEmpathy">Empathy layer</a>
+          <a href="#learn" data-i18n="footerLearn">Teachable moments</a>
+          <a href="#architecture" data-i18n="footerArchitecture">Architecture</a>
+          <a href="#channels" data-i18n="footerChannels">Open channels</a>
+        </nav>
+        <div class="footer-meta">
+          <span data-i18n="footerLocation">Built for local trust, ready to travel.</span>
+          <span data-i18n="footerCopyright">© 2026 Civic Guardian prototype</span>
+        </div>
+      </div>
+    </footer>
+
+    <script src="script.js" defer></script>
+  </body>
+</html>
