@@ -1,0 +1,248 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="Civic Guardian is an open protocol for safer digital participation across trusted local channels.">
+    <meta name="theme-color" content="#0A1733">
+    <link rel="icon" href="data:,">
+    <title>Civic Guardian / Public trust protocol</title>
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body>
+    <a class="skip-link" href="#main" data-i18n="skip">Skip to content</a>
+
+    <div class="announcement" role="status">
+      <div class="container announcement-inner">
+        <span class="signal-dot" aria-hidden="true"></span>
+        <span data-i18n="announcement">Open protocol / local trust / shared safety</span>
+        <a href="#architecture" data-i18n="announcementLink">Read the implementation path <span aria-hidden="true">↗</span></a>
+      </div>
+    </div>
+
+    <header class="masthead" id="top">
+      <div class="container masthead-inner">
+        <a class="brand" href="#top" data-i18n-attr="aria-label:brandLabel">
+          <span class="brand-mark" aria-hidden="true">CG</span>
+          <span class="brand-copy">
+            <span class="brand-name">CIVIC GUARDIAN</span>
+            <span class="brand-sub" data-i18n="brandSub">Civic Guardian as a Service</span>
+          </span>
+        </a>
+
+        <nav class="primary-nav" id="primary-nav" aria-label="Primary navigation" data-i18n-attr="aria-label:navLabel">
+          <a href="#model" data-i18n="navModel">Core model</a>
+          <a href="#stakeholders" data-i18n="navStakeholders">Stakeholders</a>
+          <a href="#architecture" data-i18n="navArchitecture">Architecture</a>
+          <a href="#contact" data-i18n="navContact">Partners</a>
+        </nav>
+
+        <div class="header-tools">
+          <div class="language-control">
+            <label for="language-select" data-i18n="languageLabel">Language</label>
+            <select id="language-select" name="language">
+              <option value="en">English</option>
+              <option value="fr">Français</option>
+              <option value="ja">日本語</option>
+              <option value="zh-TW">繁體中文</option>
+              <option value="de">Deutsch</option>
+              <option value="es">Español</option>
+              <option value="it">Italiano</option>
+            </select>
+          </div>
+          <a class="action action-small action-primary header-cta" href="#contact" data-i18n="headerCta">Bring your region</a>
+          <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" data-i18n-attr="aria-label:menuLabel">
+            <span data-i18n="menuText">Menu</span>
+            <span class="menu-glyph" aria-hidden="true">+</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero section-rule" aria-labelledby="hero-title">
+        <div class="container hero-grid">
+          <div class="hero-copy" data-reveal>
+            <p class="overline"><span data-i18n="heroOverline">Civic Guardian as a Service</span><span class="overline-rule" aria-hidden="true"></span></p>
+            <h1 id="hero-title" data-i18n="heroTitle">A safety net for digital life.</h1>
+            <p class="hero-lede" data-i18n="heroLede">A public-interest protocol that helps trusted local channels verify threats, teach patterns, and keep people connected.</p>
+            <div class="hero-actions">
+              <a class="action action-primary" href="#model" data-i18n="heroPrimary">Explore the protocol <span aria-hidden="true">↗</span></a>
+              <a class="action action-secondary" href="#architecture" data-i18n="heroSecondary">See the architecture <span aria-hidden="true">↗</span></a>
+            </div>
+          </div>
+
+          <div class="hero-visual" data-reveal>
+            <figure class="hero-image-frame">
+              <picture>
+                <source media="(max-width: 760px)" srcset="../shared-assets/public-trust-960.webp">
+                <img src="../shared-assets/public-trust-1600.webp" width="1600" height="858" fetchpriority="high" decoding="async" data-i18n-attr="alt:heroImageAlt" alt="Older adults learn safe digital habits together in a bright community workshop.">
+              </picture>
+              <figcaption class="hero-caption">
+                <span class="mono">REGION / READY</span>
+                <span data-i18n="heroCaption">Human-first signal routing</span>
+              </figcaption>
+            </figure>
+          </div>
+        </div>
+      </section>
+
+      <section class="channel-strip" aria-labelledby="channel-title">
+        <div class="container channel-grid">
+          <p id="channel-title" class="channel-label" data-i18n="channelLabel">Works across the channels people already trust.</p>
+          <ul class="channel-list" role="list">
+            <li>LINE</li>
+            <li>WhatsApp</li>
+            <li>Viber</li>
+            <li>SMS</li>
+            <li>USSD</li>
+          </ul>
+        </div>
+      </section>
+
+      <section class="section section-rule" id="model" aria-labelledby="model-title">
+        <div class="container section-intro" data-reveal>
+          <h2 id="model-title" data-i18n="modelTitle">Safety should follow the citizen, not the other way around.</h2>
+          <p data-i18n="modelLede">CGaaS separates the local conversation from the safety logic underneath it. That makes a trusted channel easier to protect, easier to teach through, and easier to extend.</p>
+        </div>
+
+        <div class="container model-grid">
+          <article class="signal-card" data-reveal>
+            <p class="card-index mono">01</p>
+            <h3 data-i18n="modelOneTitle">Listen where trust already lives.</h3>
+            <p data-i18n="modelOneBody">A citizen can forward a link, send a question, or leave a voice note in the channel they already use.</p>
+            <p class="card-foot" data-i18n="modelOneFoot">No new account / no new habit</p>
+          </article>
+          <article class="signal-card signal-card-accent" data-reveal>
+            <p class="card-index mono">02</p>
+            <h3 data-i18n="modelTwoTitle">Route the signal, not the shame.</h3>
+            <p data-i18n="modelTwoBody">A regional data source checks the claim while an empathy layer turns the result into plain, face-saving language.</p>
+            <p class="card-foot" data-i18n="modelTwoFoot">Local data / human tone</p>
+          </article>
+          <article class="signal-card" data-reveal>
+            <p class="card-index mono">03</p>
+            <h3 data-i18n="modelThreeTitle">Turn the interruption into learning.</h3>
+            <p data-i18n="modelThreeBody">Each intervention can carry a short, localized teachable moment so confidence grows after the immediate risk passes.</p>
+            <p class="card-foot" data-i18n="modelThreeFoot">Small lesson / lasting confidence</p>
+          </article>
+        </div>
+
+        <div class="container model-note" data-reveal>
+          <span class="model-note-mark" aria-hidden="true">+</span>
+          <p data-i18n="modelNote">The protocol is designed to move with the public: from LINE in Taiwan to WhatsApp, Viber, SMS, or USSD wherever people need a safer way in.</p>
+        </div>
+      </section>
+
+      <section class="section section-rule stakeholders-section" id="stakeholders" aria-labelledby="stakeholders-title">
+        <div class="container section-heading" data-reveal>
+          <h2 id="stakeholders-title" data-i18n="stakeholdersTitle">One protocol. Three layers of protection.</h2>
+          <p data-i18n="stakeholdersLede">A safe digital life is a shared responsibility. Civic Guardian makes the handoff between people legible without turning care into surveillance.</p>
+        </div>
+
+        <div class="container stakeholder-list">
+          <article class="stakeholder-row" data-reveal>
+            <div class="stakeholder-number mono">01</div>
+            <div class="stakeholder-role"><p class="overline" data-i18n="stakeholderOneRole">The citizen</p><h3 data-i18n="stakeholderOneName">Auntie Chen</h3></div>
+            <p class="stakeholder-body" data-i18n="stakeholderOneBody">A trusted reply in the language and channel she already knows, before fear turns into a costly click.</p>
+            <p class="stakeholder-need"><span class="mono" data-i18n="needLabel">Needs</span><span data-i18n="stakeholderOneNeed">zero-friction help</span></p>
+          </article>
+          <article class="stakeholder-row" data-reveal>
+            <div class="stakeholder-number mono">02</div>
+            <div class="stakeholder-role"><p class="overline" data-i18n="stakeholderTwoRole">The co-pilot</p><h3 data-i18n="stakeholderTwoName">Wei</h3></div>
+            <p class="stakeholder-body" data-i18n="stakeholderTwoBody">A calm, asynchronous signal when a family member needs a second pair of eyes, not another stream of noise.</p>
+            <p class="stakeholder-need"><span class="mono" data-i18n="needLabel">Needs</span><span data-i18n="stakeholderTwoNeed">timely handoff</span></p>
+          </article>
+          <article class="stakeholder-row" data-reveal>
+            <div class="stakeholder-number mono">03</div>
+            <div class="stakeholder-role"><p class="overline" data-i18n="stakeholderThreeRole">The administrator</p><h3 data-i18n="stakeholderThreeName">Li-zhang Lin</h3></div>
+            <p class="stakeholder-body" data-i18n="stakeholderThreeBody">An anonymized view of the threats moving through a ward, so prevention can arrive before the reports do.</p>
+            <p class="stakeholder-need"><span class="mono" data-i18n="needLabel">Needs</span><span data-i18n="stakeholderThreeNeed">localized signal</span></p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section section-rule architecture-section" id="architecture" aria-labelledby="architecture-title">
+        <div class="container section-intro architecture-intro" data-reveal>
+          <h2 id="architecture-title" data-i18n="architectureTitle">Plug in the local channel. Keep the safety logic open.</h2>
+          <p data-i18n="architectureLede">The adapter changes by region. The core remains a clear sequence: normalize, route, verify, respond.</p>
+        </div>
+
+        <div class="container architecture-flow">
+          <details class="architecture-step" open data-reveal>
+            <summary><span class="step-number mono">01</span><span class="step-title" data-i18n="architectureOneTitle">Normalize the message</span><span class="step-symbol" aria-hidden="true">+</span></summary>
+            <div class="step-body"><p data-i18n="architectureOneBody">LINE, WhatsApp, Viber, SMS, and USSD adapters translate local payloads into one standard event: user, message type, content, and region.</p><p class="step-label mono" data-i18n="architectureOneLabel">FRONTEND ADAPTER</p></div>
+          </details>
+          <details class="architecture-step" data-reveal>
+            <summary><span class="step-number mono">02</span><span class="step-title" data-i18n="architectureTwoTitle">Route the intent</span><span class="step-symbol" aria-hidden="true">+</span></summary>
+            <div class="step-body"><p data-i18n="architectureTwoBody">The AI router identifies the user’s intent and selects the regional data source without coupling the core logic to a single app.</p><p class="step-label mono" data-i18n="architectureTwoLabel">AI ROUTER</p></div>
+          </details>
+          <details class="architecture-step" data-reveal>
+            <summary><span class="step-number mono">03</span><span class="step-title" data-i18n="architectureThreeTitle">Bring your own data</span><span class="step-symbol" aria-hidden="true">+</span></summary>
+            <div class="step-body"><p data-i18n="architectureThreeBody">A local police, health, or fact-checking endpoint can plug into the same contract. The source changes; the trust pattern stays recognizable.</p><p class="step-label mono" data-i18n="architectureThreeLabel">BYOD DATA LAYER</p></div>
+          </details>
+          <details class="architecture-step" data-reveal>
+            <summary><span class="step-number mono">04</span><span class="step-title" data-i18n="architectureFourTitle">Respond with empathy</span><span class="step-symbol" aria-hidden="true">+</span></summary>
+            <div class="step-body"><p data-i18n="architectureFourBody">The raw result becomes a respectful answer, followed by a localized micro-lesson when the moment can build confidence.</p><p class="step-label mono" data-i18n="architectureFourLabel">EMPATHY LAYER</p></div>
+          </details>
+        </div>
+
+        <div class="container architecture-note" data-reveal>
+          <div class="architecture-note-mark" aria-hidden="true">CGaaS</div>
+          <div>
+            <p class="overline" data-i18n="architectureNoteLabel">The contract</p>
+            <p data-i18n="architectureNoteBody">One normalized event can power a local chat reply, a family handoff, and an anonymized threat view without exposing the person behind the signal.</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="cta-section section-rule" id="contact" aria-labelledby="cta-title">
+        <div class="container cta-grid" data-reveal>
+          <div>
+            <h2 id="cta-title" data-i18n="ctaTitle">Build a safer route into digital life.</h2>
+            <p data-i18n="ctaLede">Bring a trusted local channel, a regional data source, or a community that deserves a gentler answer. The protocol is ready to meet you there.</p>
+            <div class="cta-actions">
+              <a class="action action-primary" href="mailto:happyfumd@icloud.com,ben@grvs.io?subject=Civic%20Guardian%20regional%20partnership" data-i18n="ctaPrimary">Start a regional conversation <span aria-hidden="true">↗</span></a>
+              <a class="action action-secondary" href="#top" data-i18n="ctaSecondary">Back to the brief <span aria-hidden="true">↑</span></a>
+            </div>
+          </div>
+          <aside class="cta-aside">
+            <p class="overline" data-i18n="ctaAsideLabel">Protocol note</p>
+            <p data-i18n="ctaAsideBody">The MVP may begin as a LINE bot for Taiwanese seniors. The public-interest layer is designed to travel.</p>
+            <span class="mono cta-aside-code">CGaaS / PUBLIC TRUST / REV 01</span>
+          </aside>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer" id="footer">
+      <div class="container footer-grid">
+        <div>
+          <a class="brand footer-brand" href="#top" data-i18n-attr="aria-label:brandLabel">
+            <span class="brand-mark" aria-hidden="true">CG</span>
+            <span class="brand-copy"><span class="brand-name">CIVIC GUARDIAN</span><span class="brand-sub" data-i18n="brandSub">Civic Guardian as a Service</span></span>
+          </a>
+          <p class="footer-blurb" data-i18n="footerBlurb">An open protocol for vulnerable demographics and the people who stand beside them.</p>
+        </div>
+        <div class="footer-column">
+          <p class="overline" data-i18n="footerExploreLabel">Explore</p>
+          <a href="#model" data-i18n="navModel">Core model</a>
+          <a href="#stakeholders" data-i18n="navStakeholders">Stakeholders</a>
+          <a href="#architecture" data-i18n="navArchitecture">Architecture</a>
+        </div>
+        <div class="footer-column">
+          <p class="overline" data-i18n="footerConnectLabel">Connect</p>
+          <a href="#contact" data-i18n="navContact">Partners</a>
+          <a href="mailto:happyfumd@icloud.com,ben@grvs.io?subject=Civic%20Guardian%20regional%20partnership" data-i18n="footerEmail">Email the protocol team</a>
+          <span class="footer-language"><span data-i18n="footerLanguageLabel">Language</span>: <strong id="footer-language-value">English</strong></span>
+        </div>
+      </div>
+      <div class="container footer-bottom">
+        <span data-i18n="footerLegal">Built for public trust / not for surveillance</span>
+        <span class="mono" data-i18n="footerRevision">CGaaS / PUBLIC TRUST / REV 01</span>
+      </div>
+    </footer>
+
+    <p class="sr-only" id="language-status" role="status" aria-live="polite"></p>
+    <script src="script.js" defer></script>
+  </body>
+</html>
