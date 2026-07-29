@@ -133,3 +133,50 @@
 - Verified that the "Protect Yourself!" teachable moment card is correctly displayed when a scam is detected.
 - Verified that the dashboard correctly fetches and displays aggregated threat data from the seeded database.
 - The architecture refactoring (separating routes, controllers, services, and repositories) works seamlessly end-to-end.
+- Initialized web-demo Vite React project with Tailwind CSS v3 to match the frontend configuration.
+- Successfully copied colors and styles from frontend.
+- Verified the app loads correctly with Playwright.
+
+## Task 1.2: Split-Screen Layout
+- Created `DemoLayout` and `ExplainerSidebar` components to establish the foundational split-screen layout for the presentation demo.
+- Used Tailwind CSS for responsive grid layout (lg:w-2/3 for app stage, lg:w-1/3 for sidebar).
+- Verified DOM structure using Playwright with `data-testid` attributes.
+
+## Scenario Configuration
+- Created `scenarios.js` to define the presentation demo scenarios.
+- Structured scenarios with `title`, `description`, and `steps`.
+- Each step includes `title`, `explanation` (for sidebar), and `uiState` (for the main view).
+
+### useDemoOrchestrator Hook
+- Implemented `useDemoOrchestrator` hook to manage the presentation demo state.
+- It uses `activeScenarioId`, `currentStepIndex`, and `appState` to track the current state of the demo.
+- The hook provides `startScenario`, `nextStep`, and `resetDemo` functions to control the flow.
+- It relies on the `SCENARIOS` configuration to fetch the steps and UI state for each scenario.
+
+## Task 3.1: Adapt the Chat UI
+- Successfully ported `ChatUI`, `MessageBubble`, and `MessageInput` to `web-demo`.
+- Converted them to controlled components by removing `useChat` and passing `messages`, `isTyping`, and `inputValue` as props.
+- Verified rendering with Playwright.
+
+## Task 3.2: Adapt the Dashboard UI
+- Successfully ported `Dashboard.jsx` from `frontend` to `web-demo`.
+- Converted it to a controlled component receiving `stats` and `threats` via props.
+- Removed `useThreats` dependency and "Refresh" button logic.
+- Verified rendering with dummy data using Playwright.
+
+## Task 4.1: Wire Scenarios to UIs
+- Successfully wired the `useDemoOrchestrator` hook to `App.jsx`, `DemoLayout.jsx`, and `ExplainerSidebar.jsx`.
+- The `ExplainerSidebar` now displays the current step's title and explanation, and includes "Next Step" and "Reset" buttons.
+- The `App.jsx` conditionally renders `ChatUI` or `Dashboard` based on the `activeScenarioId` and passes the `appState` to them.
+- Verified the wiring using a Playwright script (`test-wiring.js`) which successfully navigated through the steps of the `SCAM` scenario.
+
+## Task 4.2: Final Polish & Navigation
+- Added a landing page to `App.jsx` when `activeScenarioId` is null.
+- Updated `useDemoOrchestrator` to return `hasNextStep` boolean.
+- Updated `DemoLayout` and `ExplainerSidebar` to use `hasNextStep` to conditionally render "Next Step" or "Back to Menu" buttons.
+- Verified navigation flow with Playwright.
+
+## Presentation Run-through
+- The web demo functions perfectly as a standalone presentation tool.
+- Playwright script successfully navigated through "The Scam Link" and "The Admin Dashboard" scenarios.
+- Confirmed no dependencies exist on the actual backend or database (fully standalone).
