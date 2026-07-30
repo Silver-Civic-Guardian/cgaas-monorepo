@@ -180,3 +180,30 @@
 - The web demo functions perfectly as a standalone presentation tool.
 - Playwright script successfully navigated through "The Scam Link" and "The Admin Dashboard" scenarios.
 - Confirmed no dependencies exist on the actual backend or database (fully standalone).
+
+## i18n Implementation
+- Created `web-demo/src/config/i18n.js` with a `translations` object.
+- Supported languages: `en` and `zh-TW`.
+- Extracted strings from `scenarios.js` and general UI components.
+- Implemented `useTranslation` hook using `localStorage` and `storage` event listener for cross-tab synchronization. Also added a custom `languagechange` event for same-tab synchronization.
+
+## Task 1.3: Refactor React Components & Fix Bug
+- Successfully integrated `useTranslation` hook into `App.jsx`, `DemoLayout.jsx`, `ExplainerSidebar.jsx`, and `MessageBubble.jsx`.
+- Kept `scenarios.js` pure by using translation keys (`titleKey`, `expKey`, etc.) instead of hardcoded strings.
+- Added a language dropdown to `DemoLayout.jsx` to allow users to switch between English, Traditional Chinese, and Hindi.
+- Verified UI rendering and i18n functionality using Playwright.
+- Added build:demo script to root package.json to build web-demo and copy it to frontend/public/civic-guardian/demo and then to cloudflare-dist.
+
+## Task 3.1: Add Demo Button to Hub HTML
+- Added a prominent button linking to `./demo/index.html` in `frontend/public/civic-guardian/index.html`.
+- Used `data-i18n="navDemo"` for internationalization support.
+- Placed the button inside the `<section class="intro">` block.
+
+## Task 3.2: Add Demo Button Translations
+- Added `navDemo` translation keys to `frontend/public/civic-guardian/hub.js` for all supported languages (`en`, `fr`, `ja`, `zh-TW`, `de`, `es`, `it`).
+- Used placeholder format `[LANG] Interactive Web Demo` for languages other than English and Traditional Chinese.
+
+## End-to-End Integration
+- When navigating back to a page (e.g., using the browser's Back button), browsers often restore form state (like `<select>` values) from bfcache. This can overwrite values set by scripts that run on `DOMContentLoaded` or `pageshow`.
+- To reliably restore state from `localStorage` on back navigation, use a `setTimeout(..., 0)` inside the `pageshow` event listener. This ensures the script runs *after* the browser has restored the form state.
+- Playwright's `page.goBack()` waits for the `load` event by default, which is useful for testing back navigation behavior.

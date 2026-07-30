@@ -38,3 +38,4 @@
 ## Frontend Refactoring: Custom Hooks
 - Extracted state and data fetching logic from `ChatUI.jsx` and `Dashboard.jsx` into custom hooks (`useChat.js` and `useThreats.js`).
 - This improves separation of concerns, making the UI components purely presentational and easier to test.
+- Added `base: './'` to Vite config to ensure built assets load correctly when accessed via a subfolder.

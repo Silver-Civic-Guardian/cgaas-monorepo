@@ -1,35 +1,35 @@
 export const SCENARIOS = {
   SCAM: {
-    title: "The Scam Link",
-    description: "A user receives a suspicious link and forwards it to the Civic Guardian bot.",
+    titleKey: "scam.title",
+    descKey: "scam.desc",
     steps: [
       {
-        title: "User sends link",
-        explanation: "The user forwards a suspicious WhatsApp message containing a phishing link.",
+        titleKey: "scam.step1.title",
+        expKey: "scam.step1.exp",
         uiState: {
           messages: [
-            { role: 'user', content: 'Hey, I just got this message: "Win a free iPhone! Click here: http://suspicious-link.com"' }
+            { sender: 'user', text: 'Hey, I just got this message: "Win a free iPhone! Click here: http://suspicious-link.com"' }
           ],
           isTyping: false
         }
       },
       {
-        title: "AI Routing",
-        explanation: "The system receives the message and routes it to the appropriate analysis agent.",
+        titleKey: "scam.step2.title",
+        expKey: "scam.step2.exp",
         uiState: {
           messages: [
-            { role: 'user', content: 'Hey, I just got this message: "Win a free iPhone! Click here: http://suspicious-link.com"' }
+            { sender: 'user', text: 'Hey, I just got this message: "Win a free iPhone! Click here: http://suspicious-link.com"' }
           ],
           isTyping: true
         }
       },
       {
-        title: "Empathy Layer & Teachable Moment",
-        explanation: "The bot responds with empathy, explains why the link is dangerous, and provides a teachable moment.",
+        titleKey: "scam.step3.title",
+        expKey: "scam.step3.exp",
         uiState: {
           messages: [
-            { role: 'user', content: 'Hey, I just got this message: "Win a free iPhone! Click here: http://suspicious-link.com"' },
-            { role: 'bot', content: 'Thanks for sharing this with me. I know it can be exciting to see offers like this, but this looks like a phishing scam. The link is trying to trick you into giving away personal information. It\'s always best to avoid clicking on unexpected links, even if they seem to come from someone you know.' }
+            { sender: 'user', text: 'Hey, I just got this message: "Win a free iPhone! Click here: http://suspicious-link.com"' },
+            { sender: 'bot', text: 'Thanks for sharing this with me. I know it can be exciting to see offers like this, but this looks like a phishing scam. The link is trying to trick you into giving away personal information. It\'s always best to avoid clicking on unexpected links, even if they seem to come from someone you know.', teachableMoment: true }
           ],
           isTyping: false
         }
@@ -37,36 +37,36 @@ export const SCENARIOS = {
     ]
   },
   RUMOR: {
-    title: "The Health Rumor",
-    description: "A user asks about a trending health rumor they saw online.",
+    titleKey: "rumor.title",
+    descKey: "rumor.desc",
     steps: [
       {
-        title: "User asks about rumor",
-        explanation: "The user asks the bot to verify a health claim they saw on social media.",
+        titleKey: "rumor.step1.title",
+        expKey: "rumor.step1.exp",
         uiState: {
           messages: [
-            { role: 'user', content: 'Is it true that drinking garlic water cures the flu? I saw it on Facebook.' }
+            { sender: 'user', text: 'Is it true that drinking garlic water cures the flu? I saw it on Facebook.' }
           ],
           isTyping: false
         }
       },
       {
-        title: "Fact-Checking",
-        explanation: "The bot cross-references the claim with trusted health databases.",
+        titleKey: "rumor.step2.title",
+        expKey: "rumor.step2.exp",
         uiState: {
           messages: [
-            { role: 'user', content: 'Is it true that drinking garlic water cures the flu? I saw it on Facebook.' }
+            { sender: 'user', text: 'Is it true that drinking garlic water cures the flu? I saw it on Facebook.' }
           ],
           isTyping: true
         }
       },
       {
-        title: "Providing Context",
-        explanation: "The bot provides accurate information and debunks the rumor gently.",
+        titleKey: "rumor.step3.title",
+        expKey: "rumor.step3.exp",
         uiState: {
           messages: [
-            { role: 'user', content: 'Is it true that drinking garlic water cures the flu? I saw it on Facebook.' },
-            { role: 'bot', content: 'While garlic has some health benefits, there is no scientific evidence that drinking garlic water cures the flu. The best ways to prevent and treat the flu are getting vaccinated, resting, and staying hydrated. It\'s always a good idea to check with a healthcare professional for medical advice.' }
+            { sender: 'user', text: 'Is it true that drinking garlic water cures the flu? I saw it on Facebook.' },
+            { sender: 'bot', text: 'I understand you\'re looking for ways to stay healthy. While garlic has some health benefits, there is no scientific evidence that drinking garlic water cures the flu. The best ways to prevent the flu are getting vaccinated, washing your hands, and avoiding contact with sick people.' }
           ],
           isTyping: false
         }
@@ -74,32 +74,38 @@ export const SCENARIOS = {
     ]
   },
   DASHBOARD: {
-    title: "The Admin Dashboard",
-    description: "An administrator monitors real-time threats and system activity.",
+    titleKey: "dashboard.title",
+    descKey: "dashboard.desc",
     steps: [
       {
-        title: "Initial Load",
-        explanation: "The dashboard loads with current threat statistics and recent activity.",
+        titleKey: "dashboard.step1.title",
+        expKey: "dashboard.step1.exp",
         uiState: {
-          threats: [
-            { id: 1, type: 'Phishing', severity: 'High', status: 'Active' },
-            { id: 2, type: 'Misinformation', severity: 'Medium', status: 'Resolved' }
-          ],
-          activeUsers: 150,
-          alerts: []
+          stats: {
+            totalReports: 1245,
+            activeThreats: 42,
+            resolvedIssues: 1103
+          },
+          recentActivity: [
+            { id: 1, type: 'scam', description: 'Phishing link reported in Ward 3', time: '2 mins ago' },
+            { id: 2, type: 'rumor', description: 'Health misinformation trending', time: '15 mins ago' }
+          ]
         }
       },
       {
-        title: "Real-time Update",
-        explanation: "A new high-severity threat is detected and pushed to the dashboard in real-time.",
+        titleKey: "dashboard.step2.title",
+        expKey: "dashboard.step2.exp",
         uiState: {
-          threats: [
-            { id: 3, type: 'Scam Campaign', severity: 'Critical', status: 'Active' },
-            { id: 1, type: 'Phishing', severity: 'High', status: 'Active' },
-            { id: 2, type: 'Misinformation', severity: 'Medium', status: 'Resolved' }
-          ],
-          activeUsers: 152,
-          alerts: ['New critical threat detected: Scam Campaign']
+          stats: {
+            totalReports: 1246,
+            activeThreats: 43,
+            resolvedIssues: 1103
+          },
+          recentActivity: [
+            { id: 3, type: 'critical', description: 'Coordinated scam attack detected', time: 'Just now' },
+            { id: 1, type: 'scam', description: 'Phishing link reported in Ward 3', time: '2 mins ago' },
+            { id: 2, type: 'rumor', description: 'Health misinformation trending', time: '15 mins ago' }
+          ]
         }
       }
     ]

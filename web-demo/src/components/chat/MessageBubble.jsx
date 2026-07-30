@@ -1,6 +1,9 @@
 import React from 'react';
+import { useTranslation } from '../../hooks/useTranslation';
 
 const MessageBubble = ({ msg }) => {
+  const { t } = useTranslation();
+
   return (
     <div className={`flex ${msg.sender === 'user' ? 'justify-end' : 'justify-start'}`}>
       {msg.sender === 'bot' && (
@@ -30,12 +33,12 @@ const MessageBubble = ({ msg }) => {
                 <line x1="12" y1="9" x2="12" y2="13"></line>
                 <line x1="12" y1="17" x2="12.01" y2="17"></line>
               </svg>
-              <span className="font-bold text-red-600 text-sm">Protect Yourself!</span>
+              <span className="font-bold text-red-600 text-sm">{t('protectYourself')}</span>
             </div>
             <div className="p-3">
-              <p className="text-sm text-gray-700 leading-snug">Never click links promising free money or unexpected prizes. Official organizations will not ask you to claim funds this way.</p>
+              <p className="text-sm text-gray-700 leading-snug">{t('scamWarning')}</p>
               <button className="mt-3 w-full py-2 bg-gray-50 hover:bg-gray-100 text-gray-700 text-xs font-semibold rounded-lg border border-gray-200 transition-colors">
-                Learn more about scams
+                {t('learnMoreScams')}
               </button>
             </div>
           </div>

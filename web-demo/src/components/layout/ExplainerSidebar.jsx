@@ -1,4 +1,8 @@
+import { useTranslation } from '../../hooks/useTranslation';
+
 export default function ExplainerSidebar({ currentStep, hasNextStep, nextStep, resetDemo }) {
+  const { t } = useTranslation();
+
   return (
     <div 
       data-testid="explainer-sidebar" 
@@ -6,9 +10,9 @@ export default function ExplainerSidebar({ currentStep, hasNextStep, nextStep, r
     >
       {currentStep ? (
         <>
-          <h2 className="text-2xl font-bold mb-4">{currentStep.title}</h2>
+          <h2 className="text-2xl font-bold mb-4">{t(currentStep.titleKey)}</h2>
           <p className="text-gray-300 mb-6 flex-grow">
-            {currentStep.explanation}
+            {t(currentStep.expKey)}
           </p>
           <div className="mt-auto flex gap-4">
             {hasNextStep ? (
@@ -16,7 +20,7 @@ export default function ExplainerSidebar({ currentStep, hasNextStep, nextStep, r
                 onClick={nextStep}
                 className="bg-blue-600 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
               >
-                Next Step
+                {t('nextStepBtn')}
               </button>
             ) : (
               <button 
@@ -24,22 +28,22 @@ export default function ExplainerSidebar({ currentStep, hasNextStep, nextStep, r
                 data-testid="back-to-menu-btn"
                 className="bg-green-600 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
               >
-                Back to Menu
+                {t('backToMenuBtn')}
               </button>
             )}
             <button 
               onClick={resetDemo}
               className="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded"
             >
-              Reset
+              {t('resetBtn')}
             </button>
           </div>
         </>
       ) : (
         <>
-          <h2 className="text-2xl font-bold mb-4">Explainer Sidebar</h2>
+          <h2 className="text-2xl font-bold mb-4">{t('explainerSidebar')}</h2>
           <p className="text-gray-300">
-            Select a scenario to begin.
+            {t('selectScenario')}
           </p>
         </>
       )}
